@@ -82,14 +82,6 @@ S3 (input) → Lambda → S3 (clean/error)
                      ↓
            API Gateway → /logins_today
 ```
-```mermaid
-graph TD
-    A[S3_input_logs] --> B[Lambda]
-    B --> C[S3_clean_parquet]
-    B --> D[S3_error_logs]
-    B --> E[CloudWatch_metrics]
-    E --> F[API_Gateway_/logins_today]
-
 ---
 
 ## 📌 Failure Handling & Monitoring
