@@ -73,7 +73,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 📊 AWS Architecture (Mirrored)
+## 📊 AWS Architecture
 
 ```
 S3 (input) → Lambda → S3 (clean/error)
