@@ -81,7 +81,8 @@ S3 (input) → Lambda → S3 (clean/error)
                 CloudWatch (metrics)
                      ↓
            API Gateway → /logins_today
-``` mermaid
+```
+```mermaid
 %%{ init: { 'flowchart': { 'curve': 'cardinal' } } }%%
 flowchart TD
     A@{ shape: cyl, label: "S3 Input Logs 📥", class: 's3' }
