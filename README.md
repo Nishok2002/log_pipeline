@@ -73,7 +73,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 📊 AWS Architecture 
+## 📊 AWS Architecture (Mirrored)
 
 ```
 S3 (input) → Lambda → S3 (clean/error)
@@ -82,6 +82,29 @@ S3 (input) → Lambda → S3 (clean/error)
                      ↓
            API Gateway → /logins_today
 ```
+```mermaid
+%%{ init: { 'flowchart': { 'curve': 'cardinal' } } }%%
+flowchart TD
+    A@{ shape: cyl, label: "S3 Input Logs 📥", class: 's3' }
+    B@{ shape: fr-rect, label: "Lambda\nFunction", class: 'lambda' }
+    C@{ shape: cyl, label: "S3 Clean Parquet 🧹", class: 's3' }
+    D@{ shape: hex, label: "S3 Error Logs ❗", class: 's3-error' }
+    E@{ shape: stadium, label: "CloudWatch Metrics 📊", class: 'cw' }
+    F@{ shape: hex, label: "API Gateway\n/logins_today", class: 'api' }
+
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    E --> F
+
+    %% Style definitions
+    classDef s3 fill:#d5e6fa,stroke:#1e7dd9,stroke-width:2px;
+    classDef s3-error fill:#ffd6d6,stroke:#f44336,stroke-width:2px;
+    classDef lambda fill:#feeead,stroke:#f6b93b,stroke-width:2px;
+    classDef cw fill:#e9f7d5,stroke:#27ae60,stroke-width:2px;
+    classDef api fill:#fcf6e3,stroke:#8854d0,stroke-width:2px,font-weight:bold;
+
 ---
 
 ## 📌 Failure Handling & Monitoring

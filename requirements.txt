@@ -1,0 +1,7 @@
+boto3
+moto
+pandas
+pyarrow
+fastparquet
+fastapi
+uvicorn
